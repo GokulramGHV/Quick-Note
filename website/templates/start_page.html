@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Quick-Note!{% endblock %} {% block content %}
+<style>
+    body{
+        background-image: linear-gradient(90deg,rgba(68, 63, 63, 0.65),rgba(90, 90, 90, 0.65)),url(https://source.unsplash.com/1600x900/?nature);
+    }
+
+    .subt {
+            background-color: #343a40e8;
+            border-color: #343a40de;
+        }
+  button.subt:hover {
+    background-color: #1e2022e7;
+    border-color:#1e2022de;
+  }
+  .btnnf {
+            border-radius: 100px;
+            font-family: 'Dongle', sans-serif; font-size: 37px; padding-bottom:0px;
+        }
+</style>
+<div class="container-fluid" style="margin: 22vh auto;">
+    <h1 style="text-align: center; font-family: 'Mochiy Pop One', sans-serif; color:whitesmoke; font-size: 2.7rem;">Quick-Note! 📒</h1>
+    <h4 style="text-align: center; font-weight: 300;font-family: 'Dongle', sans-serif; font-size: 2.3rem; color:whitesmoke; margin-top: 1.25rem;">A simple Web App that save notes with markdown functionality.
+    <br>Made using Flask <i class="fa fa-flask" style="font-size: 1.3rem;"></i></h4>
+    <div class="container" style="width: 16rem;margin-top: 1.5rem;">
+        {% if user.is_authenticated %}
+        <button type="button"  class="btn btn-primary container-fluid btnnf subt shadow" onclick="location.href = '/notes';">Go to Notes!</button>
+        {% else %}
+        <button type="button"  class="btn btn-primary container-fluid btnnf subt shadow" onclick="location.href = '/sign-up';">Get Started!</button>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

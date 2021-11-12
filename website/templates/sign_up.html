@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+    content %}
+    <style>
+        body{
+            background-image: linear-gradient(90deg,rgba(68, 63, 63, 0.616),rgba(194, 193, 185, 0.644)),url(https://source.unsplash.com/1600x900/?nature);
+        }
+        .subt {
+            background-color: #343a40de;
+            border-color: #343a40de;
+        }
+  button.subt:hover {
+    background-color: #1e2022de;
+    border-color:#1e2022de;
+  }
+        .form-style{
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            width: 45em;
+            padding: 2%;
+            border-radius: 1em;
+            background-color: white;
+        }
+
+        .btnnf {
+            border-radius: 100px;
+        }
+        @media only screen and (max-width: 800px) {
+            .form-style{
+            margin-top: 5em;
+            width: 95vw;
+            padding: 6%;
+            border-radius: 1em;
+            } 
+        }
+    </style>
+    <div class="container-fluid form-style shadow ">
+    <form method="POST">
+      <h3 align="center">Sign Up</h3>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          class="form-control btnnf"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control btnnf"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter first name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password1">Password</label>
+        <input
+          type="password"
+          class="form-control btnnf"
+          id="password1"
+          name="password1"
+          placeholder="Enter password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password2">Password (Confirm)</label>
+        <input
+          type="password"
+          class="form-control btnnf"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+          required
+        />
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary container-fluid btnnf subt shadow">Submit</button>
+    </form>
+    </div>
+    {% endblock %}

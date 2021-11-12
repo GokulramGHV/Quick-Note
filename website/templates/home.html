@@ -1,0 +1,82 @@
+
+{% extends "base.html" %} {% block title %}Notes{% endblock %} {% block content%}
+<style>
+  body{
+      background-image: linear-gradient(100deg,rgba(68, 63, 63, 0.616),rgba(194, 193, 185, 0.644)),url(https://source.unsplash.com/1600x900/?nature);
+  }
+  .subt {
+            background-color: #343a40de;
+            border-color: #343a40de;
+        }
+  button.subt:hover {
+    background-color: #1e2022de;
+    border-color:#1e2022de;
+  }
+  .btnnf {
+            border-radius: 100px;
+        }
+  
+  .card {
+    border-radius: 20px;
+  }
+
+  .date {
+    background-color: rgb(90, 90, 90);
+    color: whitesmoke;
+    width: fit-content;
+    border-radius: 100px;
+    padding: 5px 12px;
+  }
+
+  .note {
+    margin: 1rem auto;
+    background-color: #eaecee67;
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+</style>
+    <div class="card shadow" style="margin: 2rem 1rem 1.4rem; padding-top: 1.1rem; padding-bottom: 0.5rem;">
+    <h1 align="center">Notes 📝</h1>
+    {% if count != 1%}
+    <p align="center" style="font-size: 1.1rem;">You currently have <b>{{count}}</b> Notes!</p>
+    {% else %}
+    <p align="center" style="font-size: 1.1rem;">You currently have only <b>{{count}}</b> Note!</p>
+    {% endif %}
+    </div>
+    <div class="card shadow" style="margin: 1rem; padding: 1.1rem;">
+      <form method="POST">
+        <textarea name="note" placeholder="Type your note here..." id="note" class="form-control" rows="5" required oninvalid="this.setCustomValidity('Can\'t add an empty note! Enter some text...')"
+        oninput="this.setCustomValidity('')"></textarea>
+        <br />
+        <div align="center">
+          <button type="submit" class="btn btn-primary container-fluid btnnf subt shadow"><i class="fa fa-plus" style="margin-right: 5px;"></i> Add Note</button>
+        </div>
+      </form>
+    </div>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note,date,id in userNotes %}
+      
+      <li class="card shadow" style="margin: 1rem; padding: 0.5rem;">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 date">{{'📅 '+date.split('.')[0].split()[0]}} <span style="margin-left: 10px;">{{' 🕑 '+date.split('.')[0].split()[1]}}</span></h6>
+            <div class="card-text note "><div data-markdown>{{ note }}</div></div>
+        
+        <button type="button" class="btn btn-danger btnnf shadow" onClick="location.href = '/delete-note/{{ id }}';" style="margin-top: 0.5rem; padding: 0.5rem 1.3rem;">
+          <i class="fa fa-trash" style="margin-right: 5px;"></i> Delete
+        </button>
+        <button type="button" class="btn btn-success btnnf shadow" onClick="location.href = '/edit-note/{{ id }}';" style="margin-top: 0.5rem;margin-left: 0.7rem; padding: 0.5rem 1.3rem;">
+          <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 5px;"></i> Edit
+        </button>       
+        
+    </div>
+      </li>
+      {% endfor %}
+    </ul>
+    
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    
+    {% endblock %}
