@@ -3,4 +3,4 @@
  
  Check out the app here [Quick-Note!](https://quick-note-web.herokuapp.com/)
  
- This application was inspired by @techwithtim 's flask-note project. 
+ This application was inspired by [@techwithtim's](https://github.com/techwithtim) [Flask-Web-App-Tutorial](https://github.com/techwithtim/Flask-Web-App-Tutorial). 
