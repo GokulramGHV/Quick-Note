@@ -44,6 +44,18 @@
           background: rgba(252, 252, 252, 0.9);
           border-radius: 100vw;
         }
+        
+        .alert-style {
+          margin:1.1rem; 
+          width: 98%;
+        }
+
+        @media only screen and (max-width: 800px) {
+          .alert-style {
+          margin:1.1rem; 
+          width: 91vw;
+          }
+        }
 
     </style>
 </head>
@@ -95,14 +107,14 @@
       {% with messages = get_flashed_messages(with_categories=true) %} {% if
         messages %} {% for category, message in messages %} {% if category ==
         'error' %}
-        <div class="alert alert-danger alter-dismissable fade show container-fluid" role="alert" style="margin:1.1rem; width: 98%;">
+        <div class="alert alert-danger alter-dismissable fade show container-fluid alert-style" role="alert">
           {{ message }}
           <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         {% else %}
-        <div class="alert alert-success alter-dismissable fade show container-fluid" role="alert" style="margin:1.1rem; width: 98%;">
+        <div class="alert alert-success alter-dismissable fade show container-fluid alert-style" role="alert">
           {{ message }}
           <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span>
