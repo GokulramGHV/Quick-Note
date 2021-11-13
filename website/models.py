@@ -1,7 +1,7 @@
 from . import db
 from flask_login import UserMixin
 #from sqlalchemy.sql import func
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class Note(db.Model):

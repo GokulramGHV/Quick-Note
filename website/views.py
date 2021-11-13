@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, flash, jsonify,redirect,u
 from flask_login import login_required, current_user
 from .models import Note
 from . import db
-from datetime import datetime
+from datetime import datetime, timedelta
 #from sqlalchemy.sql import func
 
 
