@@ -2,8 +2,8 @@ from flask import Blueprint, render_template, request, flash, jsonify,redirect,u
 from flask_login import login_required, current_user
 from .models import Note
 from . import db
-#from datetime import datetime
-from sqlalchemy.sql import func
+from datetime import datetime
+#from sqlalchemy.sql import func
 
 
 views = Blueprint('views', __name__)
@@ -22,7 +22,7 @@ def home():
         if len(note) < 1:
             flash('Note is too short!', category='error')
         else:
-            new_note = Note(data=note, user_id=current_user.id,date=func.now())
+            new_note = Note(data=note, user_id=current_user.id,date=datetime.utcnow() + timedelta(hours=5, minutes=30))
             db.session.add(new_note)
             db.session.commit()
             flash('Note added!', category='success')
@@ -49,7 +49,7 @@ def update(id):
 
     if request.method == 'POST':
         note.data = request.form['note']
-        note.date = datetime.now().replace(microsecond=0)
+        note.date = datetime.utcnow() + timedelta(hours=5, minutes=30)
 
         try:
             db.session.commit()

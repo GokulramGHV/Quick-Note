@@ -1,14 +1,5 @@
-import sqlite3;
+from datetime import datetime, timedelta
 
-conn = sqlite3.connect('website/database.db')
-cur = conn.cursor()
-notess = cur.execute("select data,date,id from note where user_id=1 order by date desc;")
-l = []
-for res in notess:
-    l.append(res)
-
-for n,d,i in l:
-    print(n,d,i)
-conn.commit()
-conn.close()
+nine_hours_from_now = datetime.utcnow() + timedelta(hours=5, minutes=30)
+print('{:%H:%M:%S}'.format(nine_hours_from_now))
 
